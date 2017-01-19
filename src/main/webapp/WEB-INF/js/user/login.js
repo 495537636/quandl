@@ -32,7 +32,7 @@ $(function(){
         ).append($("<label for='showPassword'/>").text("显示密码")).insertAfter($input.parent());
     });
 
-	    $('#showPassword').click(function() {
+    $('#showPassword').click(function() {
 		if ($("#showPassword").is(":checked")) {
 			$('.icon-lock').addClass('icon-unlock');
 			$('.icon-unlock').removeClass('icon-lock');
@@ -44,6 +44,19 @@ $(function(){
 
 	//登录系统
 	$("#login").click(function() {
+		/* 添加文本框抖动特效
+		var emptyfields = $('input[value=]');
+		console.log(emptyfields);
+        if (emptyfields.size() > 0) {
+            emptyfields.each(function() {
+                $(this).stop()
+                    .animate({ left: "-10px" }, 100).animate({ left: "10px" }, 100)
+                    .animate({ left: "-10px" }, 100).animate({ left: "10px" }, 100)
+                    .animate({ left: "0px" }, 100)
+                    .addClass("required");
+            });
+        }
+        */
 		if (checkForm()) {
 			var username = $.trim($("#username").val());
 			var password = $.trim($("#password").val());
@@ -56,8 +69,13 @@ $(function(){
 					"password" : password
 				}),
 				success : function(data) {
-					var obj = data.userinfo;
-					alert(obj.realname);
+					if(null!=data){
+						//登录失败
+						$(".message").html(data.message);
+						$(".msg-error").show();
+					}else{
+						//登录成功，跳转到首页
+					}
 				}
 			});
 		}

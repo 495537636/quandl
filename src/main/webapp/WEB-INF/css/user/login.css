@@ -254,10 +254,6 @@ body {
     margin: -1px 5px 0 1px;
 }
 
-.bottomView a {
-	color: #666;
-}
-
 .msg-error {
 	padding: 5px 5px 5px 10px;
 	background: #ffebeb;
@@ -268,6 +264,7 @@ body {
 	height: 30px;
 	margin-bottom: 10px;
 	display: none;
+	border-radius: 5px;
 }
 
 .msg-error b {

@@ -1,3 +1,7 @@
+body {
+	-webkit-font-smoothing: antialiased;
+}
+
 .registerDiv {
 	/* background-image: url("../../commons/images/pattern.jpg"); */
 	background-color: #e93854;
@@ -30,6 +34,7 @@
 	height: 30px;
 	margin-bottom: 10px;
 	display: none;
+	border-radius: 5px;
 }
 
 .msg-error b {

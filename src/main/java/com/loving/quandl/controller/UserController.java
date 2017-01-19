@@ -1,6 +1,5 @@
 package com.loving.quandl.controller;
 
-import java.io.IOException;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,11 +28,14 @@ public class UserController extends BaseController {
 		String password = request.getParameter("password");
 		System.err.println("username=" + username + ";password=" + password);
 		Userinfo userinfo = userService.findUser(username, password);
+		JSONObject json = new JSONObject();
 		if (null != userinfo) {
-			JSONObject json = new JSONObject();
 			json.put("userinfo", userinfo);
-			this.printJsonMessage(response, json.toString());
+			
+		} else {
+			json.put("message", "用户名或密码错误");
 		}
+		this.printJsonMessage(response, json.toString());
 	}
 	
 	/**
@@ -53,7 +55,7 @@ public class UserController extends BaseController {
 			}
 		}
 		json.put("message", message);
-		this.printJsonMessage(response, message);
+		this.printJsonMessage(response, json.toString());
 	}
 	
 	@RequestMapping("/register")

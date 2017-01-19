@@ -2,7 +2,7 @@ $(function(){
 	
 	//加载头部文件
 	$.ajax({
-		url : "loadHeader",
+		url : "base/loadHeader",
 		type : "post",
 		data : {
 			"operateName" : "注册"
@@ -27,7 +27,11 @@ $(function(){
 				"username" : username
 			},
 			success : function(data) {
-				alert(data.message);
+				if(null!=data){
+					$(".message").html(data.message);
+					$(".msg-error").show();
+					$("#username").select();
+				}
 			}
 		});
 	});
@@ -35,6 +39,15 @@ $(function(){
 	//跳转到登录页面
 	$('#toLogin').click(function(){
 		document.location.href = "login.html";
+	});
+	
+	//加载尾部文件
+	$.ajax({
+		url : "base/loadFooter",
+		type : "post",
+		success : function(data) {
+			$("#footer").html(data);
+		}
 	});
 
 });

@@ -10,6 +10,10 @@ body {
 	box-shadow: 0 0 2px #E3E3E3;
 }
 
+.bottomView a {
+	color: #666;
+}
+
 .grid-990 {
 	margin: 0 auto;
 	width: 990px;
