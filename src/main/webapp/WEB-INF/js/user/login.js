@@ -2,7 +2,7 @@ $(function(){
 	
 	//加载头部文件
 	$.ajax({
-		url : "loadHeader",
+		url : "base/loadHeader",
 		type : "post",
 		data : {"operateName": "登录"},
 		success : function(data) {
@@ -66,6 +66,15 @@ $(function(){
 	//跳转到注册页面
 	$('#register').click(function(){
 		document.location.href = "register.html";
+	});
+	
+	//加载尾部文件
+	$.ajax({
+		url : "base/loadFooter",
+		type : "post",
+		success : function(data) {
+			$("#footer").html(data);
+		}
 	});
 
 });
