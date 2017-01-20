@@ -57,6 +57,8 @@ public class DispatcherConfig extends WebMvcConfigurerAdapter {
 		registry.addViewController("/home").setViewName("/home/homePage");
 		registry.addViewController("/toLogin").setViewName("/user/login");
 		registry.addViewController("/toRegister").setViewName("/user/register");
+		//跳转到上传页面
+		registry.addViewController("/toUpload").setViewName("/upload/upload");
 	}
 
 	/**

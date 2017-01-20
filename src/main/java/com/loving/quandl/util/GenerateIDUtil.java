@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class GenerateIDUtil {
 	
-	public String generateID() {
+	public static String generateID() {
         UUID random = UUID.randomUUID();
         String str = random.toString();
         String uuid = str.replace("-", "");

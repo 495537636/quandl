@@ -17,9 +17,10 @@ public class UserController extends BaseController {
 	@Resource
 	private UserService userService;
 
-	@RequestMapping("/say")
-	public void sayHello() {
-		System.err.println("Hello World!");
+	@RequestMapping("/toLogin")
+	public String toLogin() {
+		
+		return "user/login";
 	}
 	
 	@RequestMapping("/login")

@@ -1,15 +1,5 @@
 $(function(){
 	
-	//加载头部文件
-	$.ajax({
-		url : "base/loadHeader",
-		type : "post",
-		data : {"operateName": "登录"},
-		success : function(data) {
-			$("#header").html(data);
-		}
-	});
-	
 	//设置滚动图片3秒自动滚动
 	$('#myCarousel').carousel({
     	interval: 3000
@@ -86,15 +76,6 @@ $(function(){
 		document.location.href = "register.html";
 	});
 	
-	//加载尾部文件
-	$.ajax({
-		url : "base/loadFooter",
-		type : "post",
-		success : function(data) {
-			$("#footer").html(data);
-		}
-	});
-
 });
 
 function checkForm() {
