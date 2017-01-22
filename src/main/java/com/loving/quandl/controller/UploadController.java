@@ -26,8 +26,6 @@ import com.loving.quandl.util.OSSUtil;
 @RequestMapping("/upload")
 public class UploadController extends BaseController {
 	
-	private static String LOGIN_PAGE_PATH = "filestore/loginPage/";
-
 	/**
 	 * 上传登录页面的广告图片
 	 * Title: loginPage

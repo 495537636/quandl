@@ -16,11 +16,16 @@
 	<!-- 跳转到登录页面 -->
 	<rule>
 		<from>/login.html</from>
-		<to type="forward">/toLogin</to>
+		<to type="forward">/user/toLogin</to>
 	</rule>
 	<!-- 跳转到注册页面 -->
 	<rule>
 		<from>/register.html</from>
 		<to type="forward">/toRegister</to>
+	</rule>
+	<!-- 跳转到主页面 -->
+	<rule>
+		<from>/home.html</from>
+		<to type="forward">/home/toHomePage</to>
 	</rule>
 </urlrewrite>

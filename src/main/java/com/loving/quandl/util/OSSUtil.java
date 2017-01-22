@@ -1,9 +1,11 @@
 package com.loving.quandl.util;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
-
 import com.aliyun.oss.OSSClient;
+import com.aliyun.oss.model.OSSObjectSummary;
+import com.aliyun.oss.model.ObjectListing;
 
 /**
  * OSSUtil.java
@@ -21,6 +23,7 @@ public class OSSUtil {
 	public static String accessKeySecret = "MxlqFK3EO7hQK2NVx2uVZJDvVOWvNK";
 	public static String bucketName = "quandl";
 	private static OSSClient client = null;
+	private static String DOMAIN_URL = "http://image.loving1314.com/";
 
 	public static OSSClient ossClient() {
 		if (client == null)
@@ -43,9 +46,19 @@ public class OSSUtil {
 	}
 	
 	/**
-	 * 获取指定路径下的文件列表
+	 * 获取指定路径下所有的文件访问路径
+	 * @param key
+	 * @return
 	 */
-	public List<String> getObjectsByPath(String key) {
-		return null;
+	public static List<String> getObjectsUrlByDir(String key) {
+		ObjectListing objectListing = ossClient().listObjects(bucketName, key);
+		List<OSSObjectSummary> summaries = objectListing.getObjectSummaries();
+		List<String> urlList = new ArrayList<>();
+		for (OSSObjectSummary summary : summaries) {
+			String imageUrl = summary.getKey();
+			urlList.add(DOMAIN_URL + imageUrl);
+		}
+		return urlList;
 	}
+
 }

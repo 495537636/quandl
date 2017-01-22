@@ -1,14 +1,18 @@
 package com.loving.quandl.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.alibaba.fastjson.JSONObject;
 import com.loving.quandl.base.BaseController;
 import com.loving.quandl.bean.Userinfo;
 import com.loving.quandl.service.UserService;
+import com.loving.quandl.util.OSSUtil;
 
 @Controller
 @RequestMapping("/user")
@@ -18,8 +22,9 @@ public class UserController extends BaseController {
 	private UserService userService;
 
 	@RequestMapping("/toLogin")
-	public String toLogin() {
-		
+	public String toLogin(Model model) {
+		List<String> urlList = OSSUtil.getObjectsUrlByDir(LOGIN_PAGE_PATH);
+		model.addAttribute("urlList", urlList);
 		return "user/login";
 	}
 	
@@ -31,8 +36,7 @@ public class UserController extends BaseController {
 		Userinfo userinfo = userService.findUser(username, password);
 		JSONObject json = new JSONObject();
 		if (null != userinfo) {
-			json.put("userinfo", userinfo);
-			
+			//登录成功
 		} else {
 			json.put("message", "用户名或密码错误");
 		}

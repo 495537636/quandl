@@ -59,12 +59,13 @@ $(function(){
 					"password" : password
 				}),
 				success : function(data) {
-					if(null!=data){
+					if(null!=data.message){
 						//登录失败
 						$(".message").html(data.message);
 						$(".msg-error").show();
 					}else{
 						//登录成功，跳转到首页
+						document.location.href = "home.html";
 					}
 				}
 			});

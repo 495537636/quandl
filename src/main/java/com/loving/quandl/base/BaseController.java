@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/base")
 public class BaseController {
 	
+	protected static String LOGIN_PAGE_PATH = "filestore/loginPage/";
+	
 	/**
 	 * 加载页面头部文件
 	 * Title: loadHeader

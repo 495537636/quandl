@@ -15,13 +15,11 @@
 							<ol class="carousel-indicators">
 								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 								<li data-target="#myCarousel" data-slide-to="1" class=""></li>
-								<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-								<li data-target="#myCarousel" data-slide-to="3" class=""></li>
 							</ol>
 							<div class="carousel-inner">
-								<div class="item active">
+								<div class="item" th:each="imageUrl : ${urlList}">
 									<a href="http://www.baidu.com" target="_blank">
-										<img src="commons/images/01.jpg" alt="" />
+										<img th:src="${imageUrl}" alt="" />
 									</a>
 									<div class="carousel-caption">
 										<h4>
@@ -31,47 +29,6 @@
 											Cras justo odio, dapibus ac facilisis in, egestas eget quam.
 											Donec id elit non mi porta gravida at eget metus. Nullam id dolor
 											id nibh ultricies vehicula ut id elit.
-										</p>
-									</div>
-								</div>
-								<div class="item">
-									<a href="">
-										<img src="commons/images/02.jpg" alt="" />
-									</a>
-									<div class="carousel-caption">
-										<h4>
-											Second Thumbnail label
-										</h4>
-										<p>
-											Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-											Donec id elit non mi porta gravida at eget metus. Nullam id dolor
-											id nibh ultricies vehicula ut id elit.
-										</p>
-									</div>
-								</div>
-								<div class="item">
-									<a>
-										<img src="commons/images/lbjn.jpg" alt="兰博基尼" />
-									</a>
-									<div class="carousel-caption">
-										<h4>
-											第三张壁纸
-										</h4>
-										<p>
-											兰博基尼汽车公司（Automobili Lamborghini S.p.A.）
-										</p>
-									</div>
-								</div>
-								<div class="item">
-									<a href="http://www.baidu.com" target="_blank">
-										<img src="commons/images/jay.jpg" alt="周杰伦" />
-									</a>
-									<div class="carousel-caption">
-										<h4>
-											第四张壁纸
-										</h4>
-										<p>
-											《Mine Mine》是周杰伦演唱的一首歌曲，由周杰伦作曲、作词，收录在周杰伦2011年发行的专辑《惊叹号》中。
 										</p>
 									</div>
 								</div>
