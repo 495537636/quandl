@@ -1,5 +1,7 @@
 package com.loving.quandl.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -12,6 +14,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.loving.quandl.base.BaseController;
 import com.loving.quandl.bean.Userinfo;
 import com.loving.quandl.service.UserService;
+import com.loving.quandl.util.GenerateIDUtil;
 import com.loving.quandl.util.OSSUtil;
 
 @Controller
@@ -64,9 +67,35 @@ public class UserController extends BaseController {
 	}
 	
 	@RequestMapping("/register")
-	public String test(HttpServletRequest request, HttpServletResponse response) {
+	public void test(HttpServletRequest request, HttpServletResponse response) {
 		String username = request.getParameter("username");
-		return "test";
+		String password = request.getParameter("password");
+		String email = request.getParameter("email");
+		Userinfo userinfo = new Userinfo();
+		userinfo.setUserid(GenerateIDUtil.generateID());
+		userinfo.setUsername(username);
+		userinfo.setPassword(password);
+		userinfo.setEmail(email);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String datetime = dateFormat.format(new Date());
+        userinfo.setCreateTime(datetime);
+        userinfo.setUserFlag(1);
+		boolean flag = userService.registerUser(userinfo);
+		JSONObject json = new JSONObject();
+		boolean registerFlag = false;
+		String message = null;
+		if(flag){
+			//注册成功
+			registerFlag = true;
+			message = "注册成功";
+		}else{
+			//注册失败
+			registerFlag = false;
+			message = "注册失败";
+		}
+		json.put("flag", registerFlag);
+		json.put("message", message);
+		this.printJsonMessage(response, json.toString());
 	}
 	
 }

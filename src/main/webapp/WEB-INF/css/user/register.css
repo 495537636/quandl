@@ -5,6 +5,7 @@ body {
 .registerDiv {
 	/* background-image: url("../../commons/images/pattern.jpg"); */
 	background-color: #e93854;
+	z-index: 1;
 }
 
 .registerForm {
@@ -234,4 +235,12 @@ body {
 .registerForm input[type=checkbox] {
     vertical-align: middle;
     margin: -1px 5px 0 1px;
+}
+
+#registerMessageDiv {
+	display: none;
+}
+
+#formMessageDiv {
+	display: none;
 }
