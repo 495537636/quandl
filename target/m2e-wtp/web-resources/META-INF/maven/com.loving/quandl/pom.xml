@@ -8,11 +8,11 @@
 	
 	<repositories>
 		<!-- 配置远程仓库地址 -->
-        <repository>
+        <!-- <repository>
             <id>central-repos2</id>
             <name>Central Repository 2</name>
             <url>http://123.56.229.83:8081/nexus/content/groups/public/</url>
-        </repository>
+        </repository> -->
         <repository>
             <id>springsource-repos</id>
             <name>SpringSource Repository</name>

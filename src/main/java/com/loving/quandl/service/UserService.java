@@ -19,4 +19,11 @@ public interface UserService {
 	 */
 	boolean checkUsername(String username);
 	
+	/**
+	 * 用户注册
+	 * @param userinfo
+	 * @return
+	 */
+	boolean registerUser(Userinfo userinfo);
+	
 }

@@ -10,10 +10,10 @@
 		<result column="phone" property="phone" jdbcType="VARCHAR" />
 		<result column="email" property="email" jdbcType="VARCHAR" />
 		<result column="address" property="address" jdbcType="VARCHAR" />
-		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
-		<result column="userflag" property="userflag" jdbcType="INTEGER" />
-		<result column="usertype" property="usertype" jdbcType="INTEGER" />
-		<result column="otherinfo" property="otherinfo" typeHandler="com.loving.quandl.handler.JsonTypeHandler" />
+		<result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="userflag" property="userFlag" jdbcType="INTEGER" />
+		<result column="usertype" property="userType" jdbcType="INTEGER" />
+		<result column="otherinfo" property="otherInfo" typeHandler="com.loving.quandl.handler.JsonTypeHandler" />
 	</resultMap>
 	<sql id="Base_Column_List">
 		userid,username,password,realname,sex,phone,email,address,createtime,userflag,usertype
@@ -30,5 +30,11 @@
 	<select id="checkUsername" resultType="java.lang.Integer">
 		select count(0) from userinfo where username=#{param1}
 	</select>
+	
+	<!-- 注册用户 -->
+	<insert id="registerUser" parameterType="com.loving.quandl.bean.Userinfo">
+		insert into userinfo values(#{userid},#{username},#{realname},#{sex},#{password},#{phone},
+		#{email},#{address},#{createTime},#{userFlag},#{userType},#{otherInfo})
+	</insert>
 
 </mapper>

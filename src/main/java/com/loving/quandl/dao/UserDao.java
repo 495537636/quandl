@@ -20,5 +20,12 @@ public interface UserDao {
 	 * @return
 	 */
 	int checkUsername(String username);
+	
+	/**
+	 * 用户注册
+	 * @param userinfo
+	 * @return
+	 */
+	void registerUser(Userinfo userinfo);
 
 }

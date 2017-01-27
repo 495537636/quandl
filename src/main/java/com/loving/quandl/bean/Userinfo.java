@@ -1,7 +1,5 @@
 package com.loving.quandl.bean;
 
-import java.util.Date;
-
 public class Userinfo {
 
 	// 用户ID
@@ -21,7 +19,7 @@ public class Userinfo {
 	// 地址
 	private String address;
 	// 创建时间
-	private Date createTime;
+	private String createTime;
 	// 用户状态(0=无效，1=有效)
 	private int userFlag;
 	// 用户标识
@@ -93,11 +91,11 @@ public class Userinfo {
 		this.password = password;
 	}
 
-	public Date getCreateTime() {
+	public String getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(Date createTime) {
+	public void setCreateTime(String createTime) {
 		this.createTime = createTime;
 	}
 

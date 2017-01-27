@@ -9,12 +9,25 @@
 		<div class="registerDiv">
 			<div class="container">
 				<div class="row register">
+					<div id="registerMessageDiv" class="alert alert-success alert-dismissible fade in" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+						<h4 id="msgTitle"></h4>
+						<p id="msgContent"></p>
+						<p id="msgButton">
+							<button type="button" class="btn btn-danger">Take this action</button>
+							<button type="button" class="btn btn-default">Or do this</button>
+						</p>
+					</div>
 					<section class="main">
-						<form class="registerForm">
+						<form class="registerForm" id="registerForm">
 							<h1><span class="log-in">注册</span> / <span class="sign-up">Sign up</span></h1>
 							<div class="msg-error">
 								<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
 								<span class="message"></span>
+							</div>
+							<div id="formMessageDiv" class="alert alert-danger alert-dismissible fade in" role="alert">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+								<p id="formMessageContent"></p>
 							</div>
 							<p>
 								<input type="text" name="username" id="username" placeholder="用户名" />
@@ -28,8 +41,8 @@
 							<p>
 								<input type="text" name="email" id="email" placeholder="邮箱" class="showpassword" />
 							</p>
-							<p class="clearfix"> 
-								<input type="button" id="login" value="登录" />
+							<p class="clearfix">
+								<input type="button" id="register" class="blueButton" value="注册" />
 							</p>
 							<p>
 								<label style="text-align: right;">已有帐号？<a href="javascript:;" id="toLogin">立即登录</a></label>

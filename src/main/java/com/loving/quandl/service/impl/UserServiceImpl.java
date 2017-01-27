@@ -28,4 +28,16 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	@Override
+	public boolean registerUser(Userinfo userinfo) {
+		boolean registerFlag = false;
+		try {
+			userDao.registerUser(userinfo);
+			registerFlag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return registerFlag;
+	}
+
 }
