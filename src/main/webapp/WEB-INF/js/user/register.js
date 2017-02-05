@@ -83,6 +83,7 @@ $(function(){
 
 });
 
+
 function checkForm() {
 	//验证输入内容
 	var username = $.trim($("#username").val());
