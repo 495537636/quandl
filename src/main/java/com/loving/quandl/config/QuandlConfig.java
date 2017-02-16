@@ -25,7 +25,7 @@ public class QuandlConfig {
     public ComboPooledDataSource getDataSource() {
         try {
 			ComboPooledDataSource dataSource = new ComboPooledDataSource();
-            dataSource.setJdbcUrl("jdbc:mysql://139.129.253.156:3306/loving");
+            dataSource.setJdbcUrl("jdbc:mysql://123.57.79.107:5219/loving");
             dataSource.setDriverClass("com.mysql.jdbc.Driver");
             dataSource.setUser("admin");
             dataSource.setPassword("admin110");
