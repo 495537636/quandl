@@ -7,6 +7,10 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +18,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.loving.quandl.base.BaseController;
 import com.loving.quandl.bean.Userinfo;
 import com.loving.quandl.service.UserService;
+import com.loving.quandl.util.CipherUtil;
 import com.loving.quandl.util.GenerateIDUtil;
 import com.loving.quandl.util.OSSUtil;
 
@@ -36,6 +41,8 @@ public class UserController extends BaseController {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		System.err.println("username=" + username + ";password=" + password);
+		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+		Subject currentUser = SecurityUtils.getSubject();
 		Userinfo userinfo = userService.findUser(username, password);
 		JSONObject json = new JSONObject();
 		if (null != userinfo) {
@@ -74,7 +81,7 @@ public class UserController extends BaseController {
 		Userinfo userinfo = new Userinfo();
 		userinfo.setUserid(GenerateIDUtil.generateID());
 		userinfo.setUsername(username);
-		userinfo.setPassword(password);
+		userinfo.setPassword(CipherUtil.generatePassword(password));
 		userinfo.setEmail(email);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String datetime = dateFormat.format(new Date());

@@ -40,4 +40,9 @@ public class UserServiceImpl implements UserService {
 		return registerFlag;
 	}
 
+	@Override
+	public Userinfo findUserByLoginName(String username) {
+		return userDao.findUserByLoginName(username);
+	}
+
 }

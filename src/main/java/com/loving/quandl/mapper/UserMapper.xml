@@ -9,14 +9,13 @@
 		<result column="sex" property="sex" jdbcType="VARCHAR" />
 		<result column="phone" property="phone" jdbcType="VARCHAR" />
 		<result column="email" property="email" jdbcType="VARCHAR" />
-		<result column="address" property="address" jdbcType="VARCHAR" />
 		<result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
 		<result column="userflag" property="userFlag" jdbcType="INTEGER" />
 		<result column="usertype" property="userType" jdbcType="INTEGER" />
 		<result column="otherinfo" property="otherInfo" typeHandler="com.loving.quandl.handler.JsonTypeHandler" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		userid,username,password,realname,sex,phone,email,address,createtime,userflag,usertype
+		userid,username,password,realname,sex,phone,email,createtime,userflag,usertype
 	</sql>
 
 	<!-- 查询用户信息 -->
@@ -24,6 +23,13 @@
 		select
 		<include refid="Base_Column_List" />
 		from userinfo where username=#{param1} and password=#{param2}
+	</select>
+
+	<!-- 根据用户名查询用户信息 -->
+	<select id="findUserByLoginName" resultType="com.loving.quandl.bean.Userinfo">
+		select
+		<include refid="Base_Column_List" />
+		from userinfo where username=#{param1}
 	</select>
 	
 	<!-- 验证用户名是否存在 -->
@@ -34,7 +40,7 @@
 	<!-- 注册用户 -->
 	<insert id="registerUser" parameterType="com.loving.quandl.bean.Userinfo">
 		insert into userinfo values(#{userid},#{username},#{realname},#{sex},#{password},#{phone},
-		#{email},#{address},#{createTime},#{userFlag},#{userType},#{otherInfo})
+		#{email},#{createTime},#{userFlag},#{userType},#{otherInfo})
 	</insert>
 
 </mapper>

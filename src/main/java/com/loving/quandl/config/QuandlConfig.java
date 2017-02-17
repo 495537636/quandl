@@ -29,7 +29,7 @@ public class QuandlConfig {
             dataSource.setDriverClass("com.mysql.jdbc.Driver");
             dataSource.setUser("admin");
             dataSource.setPassword("admin110");
-            dataSource.setMaxPoolSize(75);
+            dataSource.setMaxPoolSize(100);
             return dataSource;
         } catch (Exception e) {
             return null;

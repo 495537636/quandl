@@ -16,8 +16,6 @@ public class Userinfo {
 	private String phone;
 	// 邮箱
 	private String email;
-	// 地址
-	private String address;
 	// 创建时间
 	private String createTime;
 	// 用户状态(0=无效，1=有效)
@@ -73,14 +71,6 @@ public class Userinfo {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public String getPassword() {

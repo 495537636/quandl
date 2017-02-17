@@ -1,26 +1,24 @@
-var registerFlag = false;
-
 $(function(){
 	
-	$("input").each(function(){
-		$(this).bind('blur',function(){
-			var value = $.trim($(this).val());
-			var name = $(this).attr("placeholder");
-			if("" == value){
-				$(".message").html("请输入" + name);
-				$(".msg-error").show();
-				registerFlag = false;
-				return;
-			}
-		});
-	});
+//	$("input").each(function(){
+//		$(this).bind('blur',function(){
+//			var value = $.trim($(this).val());
+//			var name = $(this).attr("placeholder");
+//			if("" == value){
+//				$(".message").html("请输入" + name);
+//				$(".msg-error").show();
+//				registerFlag = false;
+//				return;
+//			}
+//		});
+//	});
 	
 	//验证用户名是否存在
 	$("#username").bind('blur',function(){
 		var username = $.trim($("#username").val());
 		if("" == username){
-			$(".message").html("请输入用户名");
-			$(".msg-error").show();
+//			$(".message").html("请输入用户名");
+//			$(".msg-error").show();
 			return;
 		}
 		$.ajax({
@@ -44,8 +42,7 @@ $(function(){
 	
 	//注册用户
 	$("#register").click(function(){
-		checkForm();
-		if(registerFlag){
+		if(checkForm()){
 			var username = $.trim($("#username").val());
 			var password = $.trim($("#password").val());
 			var email = $.trim($("#email").val());
@@ -90,35 +87,30 @@ function checkForm() {
 	if(''==username){
 		$(".message").html("请输入用户名");
 		$(".msg-error").show();
-		registerFlag = false;
-		return;
+		return false;
 	}
 	var password = $.trim($("#password").val());
 	if(''==password){
 		$(".message").html("请输入密码");
 		$(".msg-error").show();
-		registerFlag = false;
-		return;
+		return false;
 	}
 	var repassword = $.trim($("#repassword").val());
 	if(''==repassword){
 		$(".message").html("请输入确认密码");
 		$(".msg-error").show();
-		registerFlag = false;
-		return;
+		return flase;
 	}
 	if(password != repassword){
 		$(".message").html("两次密码输入不一致");
 		$(".msg-error").show();
-		registerFlag = false;
 		return false;
 	}
 	var email = $.trim($("#email").val());
 	if(''==email){
 		$(".message").html("请输入邮箱");
 		$(".msg-error").show();
-		registerFlag = false;
 		return false;
 	}
-	registerFlag = true;
+	return true;
 }
