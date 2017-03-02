@@ -55,12 +55,12 @@ public class QuandlConfig {
     }
     
     /**
-     * 配置DAO接口所在包名，Spring会自动查找其下的类
+     * 配置Mapper接口所在包名，Spring会自动查找其下的类
      */
     @Bean
     public MapperScannerConfigurer settingMapperScannerConfigurer() {
     	MapperScannerConfigurer mapperConfigurer = new MapperScannerConfigurer();
-    	mapperConfigurer.setBasePackage("com.loving.quandl.dao");
+    	mapperConfigurer.setBasePackage("com.loving.quandl.mapper");
     	mapperConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
     	return mapperConfigurer;
     }

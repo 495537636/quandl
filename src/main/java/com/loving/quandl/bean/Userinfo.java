@@ -1,116 +1,115 @@
 package com.loving.quandl.bean;
 
+import java.util.Date;
+
 public class Userinfo {
+    private String userid;
 
-	// 用户ID
-	private String userid;
-	// 用户名
-	private String username;
-	// 真实名
-	private String realname;
-	// 性别
-	private String sex;
-	// 密码
-	private String password;
-	// 电话
-	private String phone;
-	// 邮箱
-	private String email;
-	// 创建时间
-	private String createTime;
-	// 用户状态(0=无效，1=有效)
-	private int userFlag;
-	// 用户标识
-	private String userType;
-	// 用户其他信息
-	private Object otherInfo;
+    private String username;
 
-	public String getUserid() {
-		return userid;
-	}
+    private String realname;
 
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
+    private String sex;
 
-	public String getUsername() {
-		return username;
-	}
+    private String password;
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    private String phone;
 
-	public String getRealname() {
-		return realname;
-	}
+    private String email;
 
-	public void setRealname(String realname) {
-		this.realname = realname;
-	}
+    private Date createtime;
 
-	public String getSex() {
-		return sex;
-	}
+    private Integer userflag;
 
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
+    private Integer usertype;
 
-	public String getPhone() {
-		return phone;
-	}
+    private Object otherinfo;
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    public String getUserid() {
+        return userid;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setUserid(String userid) {
+        this.userid = userid == null ? null : userid.trim();
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getRealname() {
+        return realname;
+    }
 
-	public String getCreateTime() {
-		return createTime;
-	}
+    public void setRealname(String realname) {
+        this.realname = realname == null ? null : realname.trim();
+    }
 
-	public void setCreateTime(String createTime) {
-		this.createTime = createTime;
-	}
+    public String getSex() {
+        return sex;
+    }
 
-	public int getUserFlag() {
-		return userFlag;
-	}
+    public void setSex(String sex) {
+        this.sex = sex == null ? null : sex.trim();
+    }
 
-	public void setUserFlag(int userFlag) {
-		this.userFlag = userFlag;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getUserType() {
-		return userType;
-	}
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
 
-	public void setUserType(String userType) {
-		this.userType = userType;
-	}
+    public String getPhone() {
+        return phone;
+    }
 
-	public Object getOtherInfo() {
-		return otherInfo;
-	}
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
 
-	public void setOtherInfo(Object otherInfo) {
-		this.otherInfo = otherInfo;
-	}
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
+
+    public Integer getUserflag() {
+        return userflag;
+    }
+
+    public void setUserflag(Integer userflag) {
+        this.userflag = userflag;
+    }
+
+    public Integer getUsertype() {
+        return usertype;
+    }
+
+    public void setUsertype(Integer usertype) {
+        this.usertype = usertype;
+    }
+
+    public Object getOtherinfo() {
+        return otherinfo;
+    }
+
+    public void setOtherinfo(Object otherinfo) {
+        this.otherinfo = otherinfo;
+    }
 }

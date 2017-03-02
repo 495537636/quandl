@@ -41,8 +41,8 @@ public class UserController extends BaseController {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		System.err.println("username=" + username + ";password=" + password);
-		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-		Subject currentUser = SecurityUtils.getSubject();
+//		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+//		Subject currentUser = SecurityUtils.getSubject();
 		Userinfo userinfo = userService.findUser(username, password);
 		JSONObject json = new JSONObject();
 		if (null != userinfo) {
@@ -83,10 +83,10 @@ public class UserController extends BaseController {
 		userinfo.setUsername(username);
 		userinfo.setPassword(CipherUtil.generatePassword(password));
 		userinfo.setEmail(email);
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String datetime = dateFormat.format(new Date());
-        userinfo.setCreateTime(datetime);
-        userinfo.setUserFlag(1);
+		/*SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String datetime = dateFormat.format(new Date());*/
+        userinfo.setCreatetime(new Date());
+        userinfo.setUserflag(new Integer(1));
 		boolean flag = userService.registerUser(userinfo);
 		JSONObject json = new JSONObject();
 		boolean registerFlag = false;

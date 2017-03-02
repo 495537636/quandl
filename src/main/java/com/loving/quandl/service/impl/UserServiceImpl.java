@@ -1,26 +1,25 @@
 package com.loving.quandl.service.impl;
 
 import javax.annotation.Resource;
-
 import org.springframework.stereotype.Service;
 import com.loving.quandl.bean.Userinfo;
-import com.loving.quandl.dao.UserDao;
+import com.loving.quandl.mapper.UserinfoMapper;
 import com.loving.quandl.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	@Resource
-	private UserDao userDao;
+	private UserinfoMapper userinfoMapper;
 
 	@Override
 	public Userinfo findUser(String username, String password) {
-		return userDao.findUser(username, password);
+		return userinfoMapper.findUser(username, password);
 	}
 
 	@Override
 	public boolean checkUsername(String username) {
-		int count = userDao.checkUsername(username);
+		int count = userinfoMapper.checkUsername(username);
 		if (count == 0) {
 			return false;
 		} else {
@@ -32,7 +31,7 @@ public class UserServiceImpl implements UserService {
 	public boolean registerUser(Userinfo userinfo) {
 		boolean registerFlag = false;
 		try {
-			userDao.registerUser(userinfo);
+			userinfoMapper.registerUser(userinfo);
 			registerFlag = true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -42,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Userinfo findUserByLoginName(String username) {
-		return userDao.findUserByLoginName(username);
+		return userinfoMapper.findUserByLoginName(username);
 	}
 
 }
