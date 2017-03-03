@@ -40,6 +40,7 @@
 		<spring-framework.version>4.1.6.RELEASE</spring-framework.version>
 		<logback.version>1.0.13</logback.version>
 		<slf4j.version>1.7.5</slf4j.version>
+		<shiro.version>1.3.2</shiro.version>
 	</properties>
 	
 	<dependencies>
@@ -218,8 +219,23 @@
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-core</artifactId>
-			<version>1.2.3</version>
+			<version>${shiro.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>  
 		<!-- 添加MyBatis逆向工程依赖 -->
 		<dependency>
 		    <groupId>org.mybatis.generator</groupId>

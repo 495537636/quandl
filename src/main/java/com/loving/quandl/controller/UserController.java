@@ -41,15 +41,21 @@ public class UserController extends BaseController {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		System.err.println("username=" + username + ";password=" + password);
-//		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-//		Subject currentUser = SecurityUtils.getSubject();
-		Userinfo userinfo = userService.findUser(username, password);
+		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+		Subject subject = SecurityUtils.getSubject();
 		JSONObject json = new JSONObject();
-		if (null != userinfo) {
-			//登录成功
-		} else {
+		try {
+			subject.login(token);
+		} catch (Exception e) {
 			json.put("message", "用户名或密码错误");
 		}
+//		Userinfo userinfo = userService.findUser(username, password);
+//		
+//		if (null != userinfo) {
+//			//登录成功
+//		} else {
+//			
+//		}
 		this.printJsonMessage(response, json.toString());
 	}
 	

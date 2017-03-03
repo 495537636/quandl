@@ -1,6 +1,10 @@
 package com.loving.quandl.config;
 
 import java.io.IOException;
+
+import org.apache.shiro.spring.LifecycleBeanPostProcessor;
+import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
@@ -8,8 +12,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import com.loving.quandl.shiro.MyShiroRealm;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
@@ -73,6 +79,21 @@ public class QuandlConfig {
     	DataSourceTransactionManager manager = new DataSourceTransactionManager();
     	manager.setDataSource(getDataSource());
     	return manager;
+    }
+    
+    @Bean(name = "shiroFilter")
+    public ShiroFilterFactoryBean getShiroFilterFactoryBean() {
+    	ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+    	DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+    	MyShiroRealm realm = new MyShiroRealm();
+    	securityManager.setRealm(realm);
+    	shiroFilterFactoryBean.setSecurityManager(securityManager);
+    	return shiroFilterFactoryBean;
+    }
+    
+    @Bean(name = "lifecycleBeanPostProcessor")
+    public LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
+    	return new LifecycleBeanPostProcessor();
     }
     
 }

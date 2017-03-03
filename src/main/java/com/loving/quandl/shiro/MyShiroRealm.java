@@ -9,7 +9,6 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.loving.quandl.bean.Userinfo;
 import com.loving.quandl.service.UserService;
 import com.loving.quandl.util.CipherUtil;
@@ -41,7 +40,7 @@ public class MyShiroRealm extends AuthorizingRealm {
 		if (userinfo != null) {
 			return new SimpleAuthenticationInfo(userinfo.getUsername(), CipherUtil.generatePassword(userinfo.getPassword()), getName());
 		} else {
-			throw new AuthenticationException();
+			throw new AuthenticationException("用户名或密码错误");
 		}
 	}
 
