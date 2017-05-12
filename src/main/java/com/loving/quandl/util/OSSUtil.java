@@ -16,11 +16,11 @@ import com.aliyun.oss.model.ObjectListing;
 public class OSSUtil {
 
 	// 外网地址
-	public static String endpoint = "http://oss-cn-qingdao.aliyuncs.com";
+	public static String endpoint = "xxxxx";
 	// 内网地址
 	// public static String endpoint = "http://oss-cn-qingdao-internal.aliyuncs.com";
-	public static String accessKeyId = "0SDJzixpxadHXW48";
-	public static String accessKeySecret = "MxlqFK3EO7hQK2NVx2uVZJDvVOWvNK";
+	public static String accessKeyId = "xxxxx";
+	public static String accessKeySecret = "xxxxx";
 	public static String bucketName = "quandl";
 	private static OSSClient client = null;
 	private static String DOMAIN_URL = "http://image.loving1314.com/";
